@@ -45,8 +45,8 @@ impl Interpreter {
                     out.push(self.heap[self.heap_p] as char);
                 },
                 ',' => {
-                    if self.input_p >= source.len() {
-                        panic!()
+                    if self.input_p >= self.input.len() {
+                        break;
                     }
                     self.heap[self.heap_p] = self.input[self.input_p] as u8;
                     self.input_p += 1;

@@ -46,10 +46,11 @@ impl Interpreter {
                 },
                 ',' => {
                     if self.input_p >= self.input.len() {
-                        break;
+                        self.heap[self.heap_p] = 0;
+                    } else {
+                        self.heap[self.heap_p] = self.input[self.input_p] as u8;
+                        self.input_p += 1;
                     }
-                    self.heap[self.heap_p] = self.input[self.input_p] as u8;
-                    self.input_p += 1;
                 },
                 '[' => {
                     if self.heap[self.heap_p] == 0 {
